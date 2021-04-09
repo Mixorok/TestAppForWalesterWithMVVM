@@ -9,17 +9,14 @@ import UIKit
 
 class FavoriteViewCell: UITableViewCell {
     
-    var nameOfBeer = UILabel()
-    var volOfBeer = UILabel()
-    var ebc = UILabel()
-    var ibu = UILabel()
+    var valueOfBeer = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        configureStackView()
 //        configureNabeOfBeer()
 //        configureVolOfBeer()
-        addSubview(nameOfBeer)
+        addSubview(valueOfBeer)
         setNameOfBeerConstraints()
         configureNabeOfBeer()
     }
@@ -33,20 +30,20 @@ class FavoriteViewCell: UITableViewCell {
             guard let viewModel = viewModel else {
                 return
             }
-            nameOfBeer.text = viewModel.nameOfBeer
-            volOfBeer.text = viewModel.volOfBeer
+            valueOfBeer.text = viewModel.valueOfBeer
+            //volOfBeer.text = viewModel.volOfBeer
             
         }
     }
     func configureNabeOfBeer() {
-        nameOfBeer.numberOfLines = 0
-        nameOfBeer.adjustsFontSizeToFitWidth = true
+        valueOfBeer.numberOfLines = 0
+        valueOfBeer.adjustsFontSizeToFitWidth = true
         
     }
     func setNameOfBeerConstraints() {
-        nameOfBeer.translatesAutoresizingMaskIntoConstraints = false
-        nameOfBeer.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        nameOfBeer.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        valueOfBeer.translatesAutoresizingMaskIntoConstraints = false
+        valueOfBeer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        valueOfBeer.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
 }

@@ -8,25 +8,13 @@
 import Foundation
 
 class FavoruteViewCellViewModel: FavoriteCellViewModelProtocol {
-    private var beer: Beer
+    private var beer: String
     
-    var nameOfBeer: String {
-        return beer.name
+    var valueOfBeer: String {
+        return beer
     }
     
-    var volOfBeer: String {
-        return String(beer.abv)
-    }
-    
-    var ebc: String {
-        return String(beer.ebc ?? 0)
-    }
-    
-    var ibu: String {
-        return String(beer.ibu ?? 0)
-    }
-    
-    init(beer: Beer) {
+    init(beer: String) {
         self.beer = beer
     }
 }

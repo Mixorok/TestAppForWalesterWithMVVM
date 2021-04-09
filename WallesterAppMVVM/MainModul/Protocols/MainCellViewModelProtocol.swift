@@ -10,4 +10,5 @@ import Foundation
 protocol MainCellViewModelProtocol: class {
     var nameOfBeer: String {get}
     var volOfBeer: String {get}
+    var isFavorite: Bool? {get}
 }

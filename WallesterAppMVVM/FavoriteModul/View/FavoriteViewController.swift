@@ -20,11 +20,16 @@ class FavoriteViewController: UIViewController {
         configureSegment()
         configureTableView()
         view.backgroundColor = UIColor.white
+        
+        viewModel?.loadData(completion: {
+            self.tableView.reloadData()
+        })
     }
     
     //MARK: - Configure Segment
     func configureSegment(){
-        segmentControll = UISegmentedControl(items: ["Name", "Vol"])
+        segmentControll = UISegmentedControl(items: viewModel?.segmentItems)
+        segmentControll.selectedSegmentIndex = 0
         view.addSubview(segmentControll)
         setSegmentConstraint()
         segmentControll.addTarget(self, action: #selector(selectedValue), for: .valueChanged)
@@ -32,7 +37,7 @@ class FavoriteViewController: UIViewController {
     
     @objc func selectedValue(target: UISegmentedControl) {
         if target == segmentControll {
-            //selectedDesc = target.selectedSegmentIndex
+            viewModel?.selectedSegment(targetIndex: target.selectedSegmentIndex)
             tableView.reloadData()
         }
     }

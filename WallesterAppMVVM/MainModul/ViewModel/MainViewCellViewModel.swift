@@ -17,6 +17,10 @@ class MainViewCellViewModel: MainCellViewModelProtocol {
     var volOfBeer: String {
         return "Vol: \(String(beer.abv))"
     }
+    
+    var isFavorite: Bool? {
+        return beer.favorite
+    }
 
     init(beer: Beer) {
         self.beer = beer

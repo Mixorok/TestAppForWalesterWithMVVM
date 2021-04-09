@@ -10,13 +10,16 @@ import UIKit
 
 class MainViewController: UITableViewController {
     
-    var viewModel: MainViewViewModelProtocol?
+    var viewModel: MainViewViewModelProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "All beers"
         configureTableView()
         
+        viewModel.getBeers(completion: {
+            self.tableView.reloadData()
+        })
     }
     
     func configureTableView() {
@@ -27,13 +30,13 @@ class MainViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.numberOfRows() ?? 0
+        return viewModel.numberOfRows()
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MainViewCell
-        guard let tableViewCell = cell, let viewModel = viewModel else { return UITableViewCell() }
+        guard let tableViewCell = cell else { return UITableViewCell() }
 
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
         
@@ -43,8 +46,6 @@ class MainViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let viewModel = viewModel else { return }
         viewModel.selectRow(atIndexPath: indexPath)
         let dvc = DetailViewController()
         dvc.viewModel = viewModel.viewModelForSelectedRow()

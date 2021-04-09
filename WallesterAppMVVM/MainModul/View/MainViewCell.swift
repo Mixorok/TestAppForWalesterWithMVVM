@@ -12,6 +12,7 @@ class MainViewCell: UITableViewCell {
     var nameOfBeer = UILabel()
     var volOfBeer = UILabel()
     let stackView = UIStackView()
+    let starButton = UIButton(type: .system)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -19,6 +20,7 @@ class MainViewCell: UITableViewCell {
         configureStackView()
         configureNabeOfBeer()
         configureVolOfBeer()
+        configureFavoriteStarButton ()
     }
     
     required init?(coder: NSCoder) {
@@ -32,7 +34,33 @@ class MainViewCell: UITableViewCell {
             }
             nameOfBeer.text = viewModel.nameOfBeer
             volOfBeer.text = viewModel.volOfBeer
+            ifFavoriteBeer(viewModel: viewModel)
             
+        }
+    }
+    
+    func configureFavoriteStarButton () {
+        starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        starButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        starButton.tintColor = .gray
+        starButton.addTarget(self, action: #selector(addToFavoriteByButtonPressed), for: .touchUpInside)
+        accessoryView = starButton
+    }
+    
+    func ifFavoriteBeer (viewModel: MainCellViewModelProtocol) {
+        if viewModel.isFavorite == true {
+            self.starButton.tintColor = .yellow
+        } else {
+            self.starButton.tintColor = .gray
+        }
+    }
+    
+    @objc private func addToFavoriteByButtonPressed() {
+        //view?.addToFavorite(cell: self)
+        if starButton.tintColor == UIColor.yellow {
+            starButton.tintColor = UIColor.gray
+        } else {
+            starButton.tintColor = UIColor.yellow
         }
     }
     
@@ -51,7 +79,7 @@ class MainViewCell: UITableViewCell {
     func setStackViewConstraint () {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
     }
     
     func configureNabeOfBeer() {

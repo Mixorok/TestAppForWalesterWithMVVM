@@ -11,6 +11,12 @@ protocol FavoriteViewViewModelProtocol {
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoriteCellViewModelProtocol?
     
+    init (coreData: CoreDataProtocol)
+    func loadData(completion: @escaping () -> Void)
+    
+    func selectedSegment(targetIndex: Int)
+    var segmentItems: [String] {get}
+    
     func viewModelForSelectedRow() -> DetailViewModelProtocol?
     func selectRow(atIndexPath indexPath: IndexPath)
 }

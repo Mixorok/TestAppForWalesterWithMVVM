@@ -8,6 +8,10 @@
 import Foundation
 
 protocol MainViewViewModelProtocol {
+    init(networkService: NetworkServiceProtocol) 
+    
+    func getBeers(completion: @escaping () -> Void)
+    
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> MainCellViewModelProtocol?
     

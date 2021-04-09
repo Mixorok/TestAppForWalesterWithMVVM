@@ -17,14 +17,15 @@ protocol Builder {
 class ModulBuilder: Builder {
     static func createMainModule() -> UIViewController {
         let view = MainViewController()
-        let viewModel = ViewModel()
-        view.viewModel = viewModel
+        let networkService = NetworkService()
+        view.viewModel = ViewModel(networkService: networkService)
         return view
     }
     
     static func createFavoriteModule() -> UIViewController {
         let view = FavoriteViewController()
-        view.viewModel = FavoriteViewModel()
+        let coreData = CoreDataService()
+        view.viewModel = FavoriteViewModel(coreData: coreData)
         return view
     }
     

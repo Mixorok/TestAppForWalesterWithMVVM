@@ -8,8 +8,5 @@
 import Foundation
 
 protocol FavoriteCellViewModelProtocol: class {
-    var nameOfBeer: String {get}
-    var volOfBeer: String {get}
-    var ebc: String {get}
-    var ibu: String {get}
+    var valueOfBeer: String {get}
 }
