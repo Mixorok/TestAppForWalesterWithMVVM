@@ -20,10 +20,18 @@ class FavoriteViewController: UIViewController {
         configureSegment()
         configureTableView()
         view.backgroundColor = UIColor.white
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         viewModel?.loadData(completion: {
             self.tableView.reloadData()
         })
+        
+        tableView.reloadData()
+        
     }
     
     //MARK: - Configure Segment
@@ -45,8 +53,8 @@ class FavoriteViewController: UIViewController {
     func setSegmentConstraint() {
         segmentControll.translatesAutoresizingMaskIntoConstraints = false
         segmentControll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        segmentControll.leadingAnchor.constraint(equalTo: view!.leadingAnchor, constant: 10).isActive = true
-        segmentControll.trailingAnchor.constraint(equalTo: view!.trailingAnchor, constant: -10).isActive = true
+        segmentControll.leadingAnchor.constraint(equalTo: view!.safeAreaLayoutGuide.leadingAnchor, constant: 10).isActive = true
+        segmentControll.trailingAnchor.constraint(equalTo: view!.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
     }
     
     //MARK: - Configure Table View

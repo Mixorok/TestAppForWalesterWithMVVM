@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewCell: UITableViewCell {
-    
+
     var nameOfBeer = UILabel()
     var volOfBeer = UILabel()
     let stackView = UIStackView()
@@ -27,7 +27,7 @@ class MainViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    weak var viewModel: MainCellViewModelProtocol? {
+    var viewModel: MainCellViewModelProtocol? {
         willSet(viewModel) {
             guard let viewModel = viewModel else {
                 return
@@ -59,8 +59,12 @@ class MainViewCell: UITableViewCell {
         //view?.addToFavorite(cell: self)
         if starButton.tintColor == UIColor.yellow {
             starButton.tintColor = UIColor.gray
+            viewModel?.beer.favorite = false
+            viewModel?.deleteInCoreData()
         } else {
             starButton.tintColor = UIColor.yellow
+            viewModel?.beer.favorite = true
+            viewModel?.saveInCoreData()
         }
     }
     

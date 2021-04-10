@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainViewViewModelProtocol {
-    init(networkService: NetworkServiceProtocol) 
+    init(networkService: NetworkServiceProtocol, coreDataService: CoreDataProtocol) 
     
     func getBeers(completion: @escaping () -> Void)
     

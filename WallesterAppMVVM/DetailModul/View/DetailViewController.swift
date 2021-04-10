@@ -15,10 +15,17 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         configureTableView()
         customiseSections()
+        configureNavBar()
         title = viewModel?.label
     }
 
     
+    func configureNavBar() {
+        var button = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: nil)
+        button = viewModel?.ifIsFavorite(button: button) ?? UIBarButtonItem()
+        
+        navigationItem.rightBarButtonItem = button
+    }
     
     func configureTableView() {
         view.addSubview(tableView)

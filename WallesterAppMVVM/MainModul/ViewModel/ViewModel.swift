@@ -10,8 +10,9 @@ import Foundation
 
 class ViewModel: MainViewViewModelProtocol {
     
-    private var selectedIndexPath: IndexPath?
     
+    private var selectedIndexPath: IndexPath?
+    var coreDataService: CoreDataProtocol!
     var networkService: NetworkServiceProtocol!
     var beers: [Beer]?
 //    var beers: [Beer]? = [Beer(name: "Test1", abv: 20, ebc: 20, ibu: 20, favorite: true),
@@ -23,15 +24,31 @@ class ViewModel: MainViewViewModelProtocol {
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> MainCellViewModelProtocol? {
-        guard let beer = beers?[indexPath.row] else {
+        guard var beer = beers?[indexPath.row] else {
             return nil
         }
-        return MainViewCellViewModel(beer: beer)
+        if coreDataService.checkData(beer) == true{
+            beer.favorite = true
+            //print(beer)
+            return MainViewCellViewModel(beer: beer, coreDataService: coreDataService)
+        } else {
+            beer.favorite = false
+            return MainViewCellViewModel(beer: beer, coreDataService: coreDataService)
+        }
+        
     }
     
     func viewModelForSelectedRow() -> DetailViewModelProtocol? {
         guard let selectedIndexPath = selectedIndexPath else { return nil}
-        return DetailViewModel(beer: beers![selectedIndexPath.row])
+        guard var beer = beers?[selectedIndexPath.row] else {return nil}
+        if coreDataService.checkData(beer) == true {
+            beer.favorite = true
+            return DetailViewModel(beer: beer)
+        } else {
+            beer.favorite = false
+            return DetailViewModel(beer: beer)
+        }
+        //return DetailViewModel(beer: beers![selectedIndexPath.row])
     }
     
     func selectRow(atIndexPath indexPath: IndexPath) {
@@ -55,9 +72,9 @@ class ViewModel: MainViewViewModelProtocol {
         }
     }
     
-    required init(networkService: NetworkServiceProtocol) {
+    required init(networkService: NetworkServiceProtocol, coreDataService: CoreDataProtocol) {
         self.networkService = networkService
-        
+        self.coreDataService = coreDataService
     }
     
 }

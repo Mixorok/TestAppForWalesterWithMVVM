@@ -16,7 +16,7 @@ class MainViewController: UITableViewController {
         super.viewDidLoad()
         title = "All beers"
         configureTableView()
-        
+        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         viewModel.getBeers(completion: {
             self.tableView.reloadData()
         })
@@ -39,7 +39,7 @@ class MainViewController: UITableViewController {
         guard let tableViewCell = cell else { return UITableViewCell() }
 
         let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
-        
+
         tableViewCell.viewModel = cellViewModel
         
         return tableViewCell

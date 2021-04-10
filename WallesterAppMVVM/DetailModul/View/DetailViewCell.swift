@@ -30,8 +30,6 @@ class DetailViewCell: UITableViewCell {
                 return
             }
             nameOfBeer.text = viewModel.nameOfBeer
-            
-            
         }
     }
     

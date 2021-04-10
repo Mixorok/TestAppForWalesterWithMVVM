@@ -24,7 +24,7 @@
 		D907358B261F1E6800DBD044 /* MainViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907358A261F1E6800DBD044 /* MainViewCellViewModel.swift */; };
 		D9073590261F246700DBD044 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907358F261F246700DBD044 /* NetworkService.swift */; };
 		D96BBD042620B5AF00990563 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BBD032620B5AF00990563 /* Box.swift */; };
-		D96BBD092620F3C300990563 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BBD082620F3C300990563 /* CoreData.swift */; };
+		D96BBD092620F3C300990563 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BBD082620F3C300990563 /* CoreDataService.swift */; };
 		D98474A6261FAA7000E3B20C /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98474A5261FAA7000E3B20C /* DetailViewCell.swift */; };
 		D98474AC261FAA9200E3B20C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98474AB261FAA9200E3B20C /* DetailViewController.swift */; };
 		D98474B4261FAACF00E3B20C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98474B3261FAACF00E3B20C /* DetailViewModel.swift */; };
@@ -80,7 +80,7 @@
 		D907358A261F1E6800DBD044 /* MainViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCellViewModel.swift; sourceTree = "<group>"; };
 		D907358F261F246700DBD044 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D96BBD032620B5AF00990563 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		D96BBD082620F3C300990563 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		D96BBD082620F3C300990563 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		D98474A5261FAA7000E3B20C /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		D98474AB261FAA9200E3B20C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D98474B3261FAACF00E3B20C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				D907358F261F246700DBD044 /* NetworkService.swift */,
-				D96BBD082620F3C300990563 /* CoreData.swift */,
+				D96BBD082620F3C300990563 /* CoreDataService.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -449,7 +449,7 @@
 				D98474BB261FAB1400E3B20C /* DetailViewModelProtocol.swift in Sources */,
 				D9847502261FC14200E3B20C /* FavoriteViewCellViewModel.swift in Sources */,
 				D907358B261F1E6800DBD044 /* MainViewCellViewModel.swift in Sources */,
-				D96BBD092620F3C300990563 /* CoreData.swift in Sources */,
+				D96BBD092620F3C300990563 /* CoreDataService.swift in Sources */,
 				D96BBD042620B5AF00990563 /* Box.swift in Sources */,
 				D98474CC261FAC6D00E3B20C /* DetailViewCellViewModel.swift in Sources */,
 				D9847507261FC17E00E3B20C /* FavoriteCellViewModelProtocol.swift in Sources */,

@@ -27,10 +27,10 @@ class FavoriteViewModel: FavoriteViewViewModelProtocol {
             let beer = String(beers[indexPath.row].abv)
             return FavoruteViewCellViewModel(beer: beer)
         case 2:
-            let beer = String(beers[indexPath.row].ebc )
+            let beer = String(beers[indexPath.row].ebc)
             return FavoruteViewCellViewModel(beer: beer)
         case 3:
-            let beer = String(beers[indexPath.row].ibu )
+            let beer = String(beers[indexPath.row].ibu)
             return FavoruteViewCellViewModel(beer: beer)
         default:
             return nil
@@ -46,7 +46,7 @@ class FavoriteViewModel: FavoriteViewViewModelProtocol {
         switch targetIndex {
         case 0:
             segmentTargetIndex = 0
-            beers = beers.sorted{$0.name!<$1.name!}
+            beers = beers.sorted{$0.name ?? ""<$1.name ?? ""}
         case 1:
             segmentTargetIndex = 1
             beers = beers.sorted{$0.abv<$1.abv}
@@ -63,8 +63,9 @@ class FavoriteViewModel: FavoriteViewViewModelProtocol {
     
     func viewModelForSelectedRow() -> DetailViewModelProtocol? {
         guard let selectedIndexPath = selectedIndexPath else { return nil}
+        //guard let selectedBeers = beers?[selectedIndexPath.row] else {return nil}
         let selectedBeer = beers[selectedIndexPath.row]
-        return DetailViewModel(beer: Beer(name: selectedBeer.name!, abv: selectedBeer.abv, ebc: selectedBeer.ebc, ibu: selectedBeer.ibu, favorite: selectedBeer.favorite))
+        return DetailViewModel(beer: Beer(name: selectedBeer.name ?? "NoBeers", abv: selectedBeer.abv, ebc: selectedBeer.ebc, ibu: selectedBeer.ibu, favorite: selectedBeer.favorite))
     }
     
     func selectRow(atIndexPath indexPath: IndexPath) {
@@ -73,19 +74,31 @@ class FavoriteViewModel: FavoriteViewViewModelProtocol {
     
     required init(coreData: CoreDataProtocol) {
         self.coreData = coreData
+        
     }
     
     func loadData(completion: @escaping () -> Void) {
         coreData.loadData { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let favoriteBeers):
-                    self.beers = favoriteBeers
-                case .failure(let error):
-                    print(error)
+            switch result {
+            case .success(let favoriteBeers):
+                switch self.segmentTargetIndex {
+                case 0:
+                    self.beers = favoriteBeers.sorted{$0.name ?? ""<$1.name ?? ""}
+                case 1:
+                    self.beers = favoriteBeers.sorted{$0.abv<$1.abv}
+                case 2:
+                    self.beers = favoriteBeers.sorted{$0.ebc<$1.ebc}
+                case 3:
+                    self.beers = favoriteBeers.sorted{$0.ibu<$1.ibu}
+                default:
                     break
                 }
+                    //self.beers = favoriteBeers
+                
+            case .failure(let error):
+                print(error)
+                break
             }
         }
     }

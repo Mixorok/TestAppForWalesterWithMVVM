@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DetailViewModel: DetailViewModelProtocol{
     private var beers: Beer
@@ -16,6 +17,17 @@ class DetailViewModel: DetailViewModelProtocol{
     
     func numberOfRows() -> Int {
         return 4
+    }
+    
+    func ifIsFavorite(button: UIBarButtonItem) -> UIBarButtonItem {
+        if beers.favorite == true {
+            button.tintColor = UIColor.yellow
+            return button
+        } else {
+            button.tintColor = UIColor.gray
+            print(beers)
+            return button
+        }
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> DetailViewCellViewModelProtocol? {

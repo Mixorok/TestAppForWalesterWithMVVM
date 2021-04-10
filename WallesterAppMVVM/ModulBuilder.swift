@@ -18,7 +18,8 @@ class ModulBuilder: Builder {
     static func createMainModule() -> UIViewController {
         let view = MainViewController()
         let networkService = NetworkService()
-        view.viewModel = ViewModel(networkService: networkService)
+        let coreDataService = CoreDataService()
+        view.viewModel = ViewModel(networkService: networkService, coreDataService: coreDataService)
         return view
     }
     
