@@ -12,12 +12,11 @@ import CoreData
 protocol CoreDataProtocol {
     func loadData(completion: @escaping (Result<[FavoriteBeers], Error>) -> ())
     func saveData(_ beer: Beer)
-    //    func loadData() -> [FavoriteBeers]
     func deleteData(_ beer: Beer)
     func checkData(_ beer: Beer) -> Bool
 }
 
-class CoreDataService: CoreDataProtocol {
+struct CoreDataService: CoreDataProtocol {
     let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let request: NSFetchRequest<FavoriteBeers> = FavoriteBeers.fetchRequest()
     
@@ -45,16 +44,6 @@ class CoreDataService: CoreDataProtocol {
             completion(.failure(error))
         }
     }
-    
-    //    func loadData() -> [FavoriteBeers] {
-    //        var favoriteBeers = [FavoriteBeers]()
-    //        do {
-    //            favoriteBeers = try context.fetch(request)
-    //        } catch {
-    //            print("Error fetching data from context \(error)")
-    //        }
-    //        return favoriteBeers
-    //    }
     
     func deleteData(_ beer: Beer) {
         request.predicate = NSPredicate(format: "name = %@", beer.name)

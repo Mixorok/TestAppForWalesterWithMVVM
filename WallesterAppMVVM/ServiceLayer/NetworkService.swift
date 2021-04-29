@@ -11,7 +11,7 @@ protocol NetworkServiceProtocol {
     func getBeers(completion: @escaping (Result<[Beer]?, Error>) -> Void)
 }
 
-class NetworkService: NetworkServiceProtocol {
+struct NetworkService: NetworkServiceProtocol {
     func getBeers(completion: @escaping (Result<[Beer]?, Error>) -> Void) {
         let urlString = "https://api.punkapi.com/v2/beers"
         guard let url = URL(string: urlString) else { return }

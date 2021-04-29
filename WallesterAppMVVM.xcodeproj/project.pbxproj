@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9054C5E26275BA100697034 /* BeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9054C5D26275BA100697034 /* BeerTests.swift */; };
 		D907350E261F19E000DBD044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907350D261F19E000DBD044 /* AppDelegate.swift */; };
 		D9073510261F19E000DBD044 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907350F261F19E000DBD044 /* SceneDelegate.swift */; };
 		D9073518261F19E000DBD044 /* WallesterAppMVVM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9073516261F19E000DBD044 /* WallesterAppMVVM.xcdatamodeld */; };
@@ -19,11 +20,10 @@
 		D9073559261F1B7300DBD044 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9073558261F1B7300DBD044 /* MainViewController.swift */; };
 		D9073561261F1B9900DBD044 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9073560261F1B9900DBD044 /* MainViewCell.swift */; };
 		D907356E261F1BCA00DBD044 /* MainViewViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907356D261F1BCA00DBD044 /* MainViewViewModelProtocol.swift */; };
-		D907357A261F1C3000DBD044 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9073579261F1C3000DBD044 /* ViewModel.swift */; };
+		D907357A261F1C3000DBD044 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9073579261F1C3000DBD044 /* MainViewModel.swift */; };
 		D9073583261F1DBF00DBD044 /* MainCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9073582261F1DBF00DBD044 /* MainCellViewModelProtocol.swift */; };
 		D907358B261F1E6800DBD044 /* MainViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907358A261F1E6800DBD044 /* MainViewCellViewModel.swift */; };
 		D9073590261F246700DBD044 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907358F261F246700DBD044 /* NetworkService.swift */; };
-		D96BBD042620B5AF00990563 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BBD032620B5AF00990563 /* Box.swift */; };
 		D96BBD092620F3C300990563 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BBD082620F3C300990563 /* CoreDataService.swift */; };
 		D98474A6261FAA7000E3B20C /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98474A5261FAA7000E3B20C /* DetailViewCell.swift */; };
 		D98474AC261FAA9200E3B20C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98474AB261FAA9200E3B20C /* DetailViewController.swift */; };
@@ -37,6 +37,11 @@
 		D9847502261FC14200E3B20C /* FavoriteViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9847501261FC14200E3B20C /* FavoriteViewCellViewModel.swift */; };
 		D9847507261FC17E00E3B20C /* FavoriteCellViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9847506261FC17E00E3B20C /* FavoriteCellViewModelProtocol.swift */; };
 		D9847514261FC32C00E3B20C /* FavoriteViewViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9847513261FC32C00E3B20C /* FavoriteViewViewModelProtocol.swift */; };
+		D9B82BB92635830A00327F60 /* MainViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B82BB82635830900327F60 /* MainViewCellViewModelTests.swift */; };
+		D9B82BC42635858000327F60 /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B82BC32635858000327F60 /* DetailViewModelTests.swift */; };
+		D9B82BD62635969400327F60 /* DetailViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B82BD52635969400327F60 /* DetailViewCellViewModelTests.swift */; };
+		D9B82BDB2635988300327F60 /* FavoriteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B82BDA2635988300327F60 /* FavoriteViewModelTests.swift */; };
+		D9EDCDC526308BA800175133 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EDCDC426308BA800175133 /* MainViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D9054C5D26275BA100697034 /* BeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerTests.swift; sourceTree = "<group>"; };
 		D907350A261F19E000DBD044 /* WallesterAppMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallesterAppMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D907350D261F19E000DBD044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D907350F261F19E000DBD044 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,11 +81,10 @@
 		D9073558261F1B7300DBD044 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D9073560261F1B9900DBD044 /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		D907356D261F1BCA00DBD044 /* MainViewViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModelProtocol.swift; sourceTree = "<group>"; };
-		D9073579261F1C3000DBD044 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D9073579261F1C3000DBD044 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D9073582261F1DBF00DBD044 /* MainCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		D907358A261F1E6800DBD044 /* MainViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCellViewModel.swift; sourceTree = "<group>"; };
 		D907358F261F246700DBD044 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		D96BBD032620B5AF00990563 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		D96BBD082620F3C300990563 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		D98474A5261FAA7000E3B20C /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		D98474AB261FAA9200E3B20C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +98,11 @@
 		D9847501261FC14200E3B20C /* FavoriteViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCellViewModel.swift; sourceTree = "<group>"; };
 		D9847506261FC17E00E3B20C /* FavoriteCellViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCellViewModelProtocol.swift; sourceTree = "<group>"; };
 		D9847513261FC32C00E3B20C /* FavoriteViewViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewViewModelProtocol.swift; sourceTree = "<group>"; };
+		D9B82BB82635830900327F60 /* MainViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCellViewModelTests.swift; sourceTree = "<group>"; };
+		D9B82BC32635858000327F60 /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
+		D9B82BD52635969400327F60 /* DetailViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCellViewModelTests.swift; sourceTree = "<group>"; };
+		D9B82BDA2635988300327F60 /* FavoriteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModelTests.swift; sourceTree = "<group>"; };
+		D9EDCDC426308BA800175133 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +130,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9054C5B26275B4900697034 /* MainModul */ = {
+			isa = PBXGroup;
+			children = (
+				D9054C5C26275B5700697034 /* Model */,
+				D9EDCDC926308BAC00175133 /* MainViewModel */,
+			);
+			path = MainModul;
+			sourceTree = "<group>";
+		};
+		D9054C5C26275B5700697034 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9054C5D26275BA100697034 /* BeerTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D9073501261F19E000DBD044 = {
 			isa = PBXGroup;
 			children = (
@@ -146,10 +173,9 @@
 				D907350D261F19E000DBD044 /* AppDelegate.swift */,
 				D907350F261F19E000DBD044 /* SceneDelegate.swift */,
 				D9073546261F1A6A00DBD044 /* ModulBuilder.swift */,
-				D96BBD032620B5AF00990563 /* Box.swift */,
+				D907359B261F247D00DBD044 /* MainModul */,
 				D984750F261FC19800E3B20C /* FavoriteModul */,
 				D98474E6261FBF9400E3B20C /* DetailModul */,
-				D907359B261F247D00DBD044 /* MainModul */,
 				D9073594261F246B00DBD044 /* ServiceLayer */,
 				D9073519261F19E300DBD044 /* Assets.xcassets */,
 				D907351B261F19E300DBD044 /* LaunchScreen.storyboard */,
@@ -162,6 +188,9 @@
 		D9073526261F19E300DBD044 /* WallesterAppMVVMTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9054C5B26275B4900697034 /* MainModul */,
+				D94AE821263A972D004C3455 /* FavoriteModul */,
+				D94AE825263A973B004C3455 /* DetailModul */,
 				D9073527261F19E300DBD044 /* WallesterAppMVVMTests.swift */,
 				D9073529261F19E300DBD044 /* Info.plist */,
 			);
@@ -206,7 +235,7 @@
 		D907357E261F1C3300DBD044 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D9073579261F1C3000DBD044 /* ViewModel.swift */,
+				D9073579261F1C3000DBD044 /* MainViewModel.swift */,
 				D907358A261F1E6800DBD044 /* MainViewCellViewModel.swift */,
 			);
 			path = ViewModel;
@@ -230,6 +259,22 @@
 				D9073565261F1BA100DBD044 /* View */,
 			);
 			path = MainModul;
+			sourceTree = "<group>";
+		};
+		D94AE821263A972D004C3455 /* FavoriteModul */ = {
+			isa = PBXGroup;
+			children = (
+				D9B82BDF2635995C00327F60 /* FavoriteViewModel */,
+			);
+			path = FavoriteModul;
+			sourceTree = "<group>";
+		};
+		D94AE825263A973B004C3455 /* DetailModul */ = {
+			isa = PBXGroup;
+			children = (
+				D9B82BC82635858400327F60 /* DetailViewModel */,
+			);
+			path = DetailModul;
 			sourceTree = "<group>";
 		};
 		D98474AA261FAA7700E3B20C /* View */ = {
@@ -304,6 +349,32 @@
 				D98474EF261FBFF500E3B20C /* View */,
 			);
 			path = FavoriteModul;
+			sourceTree = "<group>";
+		};
+		D9B82BC82635858400327F60 /* DetailViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D9B82BC32635858000327F60 /* DetailViewModelTests.swift */,
+				D9B82BD52635969400327F60 /* DetailViewCellViewModelTests.swift */,
+			);
+			path = DetailViewModel;
+			sourceTree = "<group>";
+		};
+		D9B82BDF2635995C00327F60 /* FavoriteViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D9B82BDA2635988300327F60 /* FavoriteViewModelTests.swift */,
+			);
+			path = FavoriteViewModel;
+			sourceTree = "<group>";
+		};
+		D9EDCDC926308BAC00175133 /* MainViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D9EDCDC426308BA800175133 /* MainViewModelTests.swift */,
+				D9B82BB82635830900327F60 /* MainViewCellViewModelTests.swift */,
+			);
+			path = MainViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,7 +508,7 @@
 			files = (
 				D9073583261F1DBF00DBD044 /* MainCellViewModelProtocol.swift in Sources */,
 				D907356E261F1BCA00DBD044 /* MainViewViewModelProtocol.swift in Sources */,
-				D907357A261F1C3000DBD044 /* ViewModel.swift in Sources */,
+				D907357A261F1C3000DBD044 /* MainViewModel.swift in Sources */,
 				D907350E261F19E000DBD044 /* AppDelegate.swift in Sources */,
 				D9073554261F1B2800DBD044 /* Beer.swift in Sources */,
 				D9073510261F19E000DBD044 /* SceneDelegate.swift in Sources */,
@@ -450,7 +521,6 @@
 				D9847502261FC14200E3B20C /* FavoriteViewCellViewModel.swift in Sources */,
 				D907358B261F1E6800DBD044 /* MainViewCellViewModel.swift in Sources */,
 				D96BBD092620F3C300990563 /* CoreDataService.swift in Sources */,
-				D96BBD042620B5AF00990563 /* Box.swift in Sources */,
 				D98474CC261FAC6D00E3B20C /* DetailViewCellViewModel.swift in Sources */,
 				D9847507261FC17E00E3B20C /* FavoriteCellViewModelProtocol.swift in Sources */,
 				D9073590261F246700DBD044 /* NetworkService.swift in Sources */,
@@ -469,6 +539,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9073528261F19E300DBD044 /* WallesterAppMVVMTests.swift in Sources */,
+				D9B82BB92635830A00327F60 /* MainViewCellViewModelTests.swift in Sources */,
+				D9054C5E26275BA100697034 /* BeerTests.swift in Sources */,
+				D9B82BD62635969400327F60 /* DetailViewCellViewModelTests.swift in Sources */,
+				D9EDCDC526308BA800175133 /* MainViewModelTests.swift in Sources */,
+				D9B82BDB2635988300327F60 /* FavoriteViewModelTests.swift in Sources */,
+				D9B82BC42635858000327F60 /* DetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

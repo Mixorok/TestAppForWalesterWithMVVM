@@ -17,6 +17,5 @@ protocol FavoriteViewViewModelProtocol {
     func selectedSegment(targetIndex: Int)
     var segmentItems: [String] {get}
     
-    func viewModelForSelectedRow() -> DetailViewModelProtocol?
-    func selectRow(atIndexPath indexPath: IndexPath)
+    func viewModelForSelectedRow(atIndexPath indexPath: IndexPath) -> DetailViewModelProtocol?
 }

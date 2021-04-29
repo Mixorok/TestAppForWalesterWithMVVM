@@ -14,13 +14,23 @@ class MainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Load")
         title = "All beers"
         configureTableView()
-        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        getBeers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    func getBeers() {
         viewModel.getBeers(completion: {
             self.tableView.reloadData()
         })
     }
+    
     
     func configureTableView() {
         tableView.register(MainViewCell.self, forCellReuseIdentifier: "cell")
@@ -46,9 +56,8 @@ class MainViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectRow(atIndexPath: indexPath)
         let dvc = DetailViewController()
-        dvc.viewModel = viewModel.viewModelForSelectedRow()
+        dvc.viewModel = viewModel.viewModelForSelectedRow(atIndexPath: indexPath)
 
         let detailViewController = ModulBuilder.createDetailModule(detailVC: dvc)
         navigationController?.pushViewController(detailViewController, animated: true)

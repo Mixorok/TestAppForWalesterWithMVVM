@@ -21,11 +21,25 @@ class DetailViewController: UIViewController {
 
     
     func configureNavBar() {
-        var button = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: nil)
-        button = viewModel?.ifIsFavorite(button: button) ?? UIBarButtonItem()
-        
+        let button = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(addToFavorite))
+
+        button.tintColor = (viewModel?.ifIsFavorite())! ? UIColor.yellow : UIColor.gray
         navigationItem.rightBarButtonItem = button
     }
+    
+    @objc func addToFavorite(sender:UIButton) {
+        if viewModel?.ifIsFavorite() == true {
+            sender.tintColor = UIColor.gray
+            viewModel?.beer.favorite = false
+            viewModel?.deleteInCoreData()
+        } else {
+            sender.tintColor = UIColor.yellow
+            viewModel?.beer.favorite = true
+            viewModel?.saveInCoreData()
+        }
+    }
+    
+    
     
     func configureTableView() {
         view.addSubview(tableView)

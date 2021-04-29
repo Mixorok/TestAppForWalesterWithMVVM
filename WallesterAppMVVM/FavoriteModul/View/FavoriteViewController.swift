@@ -26,13 +26,16 @@ class FavoriteViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
         viewModel?.loadData(completion: {
             self.tableView.reloadData()
         })
         
         tableView.reloadData()
         
+        
     }
+    
     
     //MARK: - Configure Segment
     func configureSegment(){
@@ -107,9 +110,8 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let viewModel = viewModel else { return }
-        viewModel.selectRow(atIndexPath: indexPath)
         let dvc = DetailViewController()
-        dvc.viewModel = viewModel.viewModelForSelectedRow()
+        dvc.viewModel = viewModel.viewModelForSelectedRow(atIndexPath: indexPath)
         
         let detailViewController = ModulBuilder.createDetailModule(detailVC: dvc)
         navigationController?.pushViewController(detailViewController, animated: true)

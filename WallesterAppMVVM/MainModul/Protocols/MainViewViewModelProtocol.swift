@@ -15,6 +15,5 @@ protocol MainViewViewModelProtocol {
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> MainCellViewModelProtocol?
     
-    func viewModelForSelectedRow() -> DetailViewModelProtocol?
-    func selectRow(atIndexPath indexPath: IndexPath)
+    func viewModelForSelectedRow(atIndexPath indexPath: IndexPath) -> DetailViewModelProtocol?
 }

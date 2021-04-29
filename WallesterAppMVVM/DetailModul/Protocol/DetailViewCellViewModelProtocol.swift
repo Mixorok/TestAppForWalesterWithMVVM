@@ -9,4 +9,5 @@ import Foundation
 
 protocol DetailViewCellViewModelProtocol: class {
     var nameOfBeer: String { get }
+    var beer: Beer {get}
 }

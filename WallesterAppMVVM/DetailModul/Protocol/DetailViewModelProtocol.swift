@@ -9,10 +9,14 @@ import Foundation
 import UIKit
 
 protocol DetailViewModelProtocol {
+    var beer: Beer {get set}
     func numberOfRows() -> Int
     func cellViewModel(forIndexPath indexPath: IndexPath) -> DetailViewCellViewModelProtocol?
     var label: String {get}
     
-    func ifIsFavorite(button: UIBarButtonItem) -> UIBarButtonItem
+    func ifIsFavorite() -> Bool
+    
+    func saveInCoreData()
+    func deleteInCoreData()
     
 }

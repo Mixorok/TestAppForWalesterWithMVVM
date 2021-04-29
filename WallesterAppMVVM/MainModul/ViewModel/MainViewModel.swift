@@ -8,15 +8,11 @@
 import Foundation
 
 
-class ViewModel: MainViewViewModelProtocol {
+class MainViewModel: MainViewViewModelProtocol {
     
-    
-    private var selectedIndexPath: IndexPath?
     var coreDataService: CoreDataProtocol!
     var networkService: NetworkServiceProtocol!
     var beers: [Beer]?
-//    var beers: [Beer]? = [Beer(name: "Test1", abv: 20, ebc: 20, ibu: 20, favorite: true),
-//                 Beer(name: "TestFalse", abv: 20, ebc: 20, ibu: 20, favorite: false)]
     
     
     func numberOfRows() -> Int {
@@ -29,7 +25,6 @@ class ViewModel: MainViewViewModelProtocol {
         }
         if coreDataService.checkData(beer) == true{
             beer.favorite = true
-            //print(beer)
             return MainViewCellViewModel(beer: beer, coreDataService: coreDataService)
         } else {
             beer.favorite = false
@@ -38,22 +33,19 @@ class ViewModel: MainViewViewModelProtocol {
         
     }
     
-    func viewModelForSelectedRow() -> DetailViewModelProtocol? {
-        guard let selectedIndexPath = selectedIndexPath else { return nil}
-        guard var beer = beers?[selectedIndexPath.row] else {return nil}
+    func viewModelForSelectedRow(atIndexPath indexPath: IndexPath) -> DetailViewModelProtocol? {
+        guard var beer = beers?[indexPath.row] else {return nil}
         if coreDataService.checkData(beer) == true {
             beer.favorite = true
-            return DetailViewModel(beer: beer)
+            return DetailViewModel(beer: beer, coreDataService: coreDataService)
         } else {
             beer.favorite = false
-            return DetailViewModel(beer: beer)
+            return DetailViewModel(beer: beer, coreDataService: coreDataService)
         }
-        //return DetailViewModel(beer: beers![selectedIndexPath.row])
     }
     
-    func selectRow(atIndexPath indexPath: IndexPath) {
-        self.selectedIndexPath = indexPath
-    }
+    //This VAR for UNIT test
+    var checkBeers = false
     
     func getBeers(completion: @escaping() -> ()) {
         networkService.getBeers { [weak self] result in
@@ -61,7 +53,7 @@ class ViewModel: MainViewViewModelProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let beers):
-                    //self.beers = beers
+                    self.checkBeers = true
                     self.beers = beers!.sorted{ $0.name < $1.name }
                     completion()
                 case .failure(let error):

@@ -8,15 +8,12 @@
 import Foundation
 
 class FavoriteViewModel: FavoriteViewViewModelProtocol {
-    
-    
-    
+
     var coreData: CoreDataProtocol
     var segmentItems: [String] = ["Name", "Alcohol", "EBC", "IBU"]
     var beers = [FavoriteBeers]()
     
     private var segmentTargetIndex = 0
-    private var selectedIndexPath: IndexPath?
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> FavoriteCellViewModelProtocol? {
         switch segmentTargetIndex {
@@ -61,27 +58,25 @@ class FavoriteViewModel: FavoriteViewViewModelProtocol {
         }
     }
     
-    func viewModelForSelectedRow() -> DetailViewModelProtocol? {
-        guard let selectedIndexPath = selectedIndexPath else { return nil}
-        //guard let selectedBeers = beers?[selectedIndexPath.row] else {return nil}
-        let selectedBeer = beers[selectedIndexPath.row]
-        return DetailViewModel(beer: Beer(name: selectedBeer.name ?? "NoBeers", abv: selectedBeer.abv, ebc: selectedBeer.ebc, ibu: selectedBeer.ibu, favorite: selectedBeer.favorite))
+    func viewModelForSelectedRow(atIndexPath indexPath: IndexPath) -> DetailViewModelProtocol? {
+        let selectedBeer = beers[indexPath.row]
+        return DetailViewModel(beer: Beer(name: selectedBeer.name ?? "NoBeers", abv: selectedBeer.abv, ebc: selectedBeer.ebc, ibu: selectedBeer.ibu, favorite: selectedBeer.favorite), coreDataService: coreData)
     }
     
-    func selectRow(atIndexPath indexPath: IndexPath) {
-        self.selectedIndexPath = indexPath
-    }
     
     required init(coreData: CoreDataProtocol) {
         self.coreData = coreData
         
     }
     
+    var checkBeers = false
+    
     func loadData(completion: @escaping () -> Void) {
         coreData.loadData { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let favoriteBeers):
+                self.checkBeers = true
                 switch self.segmentTargetIndex {
                 case 0:
                     self.beers = favoriteBeers.sorted{$0.name ?? ""<$1.name ?? ""}

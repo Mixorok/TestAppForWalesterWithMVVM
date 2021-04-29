@@ -8,8 +8,8 @@
 import Foundation
 
 class DetailViewCellViewModel: DetailViewCellViewModelProtocol {
-    private var beer: Beer
-    private var indexPath: IndexPath
+    var beer: Beer
+    var indexPath: IndexPath
     
     var nameOfBeer: String {
 

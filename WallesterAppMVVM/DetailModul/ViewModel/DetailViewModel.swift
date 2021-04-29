@@ -9,33 +9,36 @@ import Foundation
 import UIKit
 
 class DetailViewModel: DetailViewModelProtocol{
-    private var beers: Beer
+    var beer: Beer
+    var coreDataService: CoreDataProtocol
     
     var label: String {
-        return beers.name
+        return beer.name
     }
     
     func numberOfRows() -> Int {
         return 4
     }
     
-    func ifIsFavorite(button: UIBarButtonItem) -> UIBarButtonItem {
-        if beers.favorite == true {
-            button.tintColor = UIColor.yellow
-            return button
-        } else {
-            button.tintColor = UIColor.gray
-            print(beers)
-            return button
-        }
+    func ifIsFavorite() -> Bool {
+        return beer.favorite ?? false
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> DetailViewCellViewModelProtocol? {
-        return DetailViewCellViewModel(beer: beers, indexPath: indexPath)
+        return DetailViewCellViewModel(beer: beer, indexPath: indexPath)
     }
     
-    init(beer: Beer) {
-        self.beers = beer
+    func deleteInCoreData() {
+        coreDataService.deleteData(beer)
+    }
+    
+    func saveInCoreData() {
+        coreDataService.saveData(beer)
+    }
+    
+    init(beer: Beer, coreDataService: CoreDataProtocol) {
+        self.beer = beer
+        self.coreDataService = coreDataService
     }
     
     

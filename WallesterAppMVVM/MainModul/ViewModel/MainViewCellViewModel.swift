@@ -12,8 +12,6 @@ class MainViewCellViewModel: MainCellViewModelProtocol {
     var coreDataService: CoreDataProtocol
     var beer: Beer
     
-    //var favorite: Box<Bool?> = Box(nil)
-    
     var nameOfBeer: String {
         return beer.name
     }
@@ -23,15 +21,7 @@ class MainViewCellViewModel: MainCellViewModelProtocol {
     }
     
     var isFavorite: Bool? {
-//        if coreDataService.checkData(beer) == true {
-//            beer.favorite = false
-//            return beer.favorite
-//        } else {
-//            beer.favorite = true
-//            return beer.favorite
-//        }
         return beer.favorite
-        
     }
     
     func deleteInCoreData() {
