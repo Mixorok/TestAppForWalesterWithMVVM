@@ -8,7 +8,9 @@ I made an application that, using JSON, MVVM architecture, Core Data, Unit Tests
 
 ## What I Used
 
-* JSON file from coinapi.
-* Used apiKey for use JSON.
+* JSON file.
 * Use the MVVM architecture. 
+* Core Data
+* Unit tests
+* Build without StoryBoard
 
